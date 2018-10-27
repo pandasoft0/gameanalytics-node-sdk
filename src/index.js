@@ -229,7 +229,7 @@ class GameAnalytics {
 
       // Verify the data if a pattern is specified.
       if (params[key].pattern && !params[key].pattern.test(`${data[key]}`)) {
-        console.error(new Error(`Invalid value supplied for property "${key}"`));
+        console.error(new Error(`Invalid value "${data[key]}" supplied for property "${key}"`));
         valid = false;
       }
     });
@@ -324,7 +324,7 @@ class GameAnalytics {
       data: body,
       headers,
     }).catch((res) => {
-      console.error(res && res.response ? res.response.data[0].errors : 'unknown response');
+      console.error(res.response.data[0].errors);
     });
   }
 }
