@@ -215,7 +215,7 @@ class GameAnalytics {
 
       // Check if enum values are contained in the list.
       if (params[key].enum && !params[key].enum.includes(data[key])) {
-        console.error(new Error(`Invalid value "${data[key]}" for property "${key}": ${data[key]}`));
+        console.error(new Error(`Invalid value "${data[key]}" for property "${key}"`));
         valid = false;
         return;
       }
@@ -324,7 +324,7 @@ class GameAnalytics {
       data: body,
       headers,
     }).catch((res) => {
-      console.error(res.response.data[0].errors);
+      console.error(res && res.response ? res.response.data[0].errors : 'unknown response');
     });
   }
 }
