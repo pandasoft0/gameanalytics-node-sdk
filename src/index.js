@@ -217,7 +217,7 @@ class GameAnalytics {
 
     Object.keys(params).forEach((key) => {
       // Check if a required property is missing.
-      if (params[key].required && !data.hasOwnProperty(key) {
+      if (params[key].required && !data.hasOwnProperty(key)) {
         console.error(new Error(`Missing required property "${key}". ${JSON.stringify(data)}`));
         valid = false;
         return;
